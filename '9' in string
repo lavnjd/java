@@ -1,0 +1,32 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		String []p=s.split(" ");
+		List<String> l = new ArrayList<>();
+		int t1=0;
+		for(int i=0;i<p.length;i++)
+		{
+		    if(p[i].matches("-?\\d+"))
+		    {
+		        if((p[i].contains("9"))==false)
+		        {
+		            l.add(p[i]);
+		            t1=1;
+		        }
+		    }
+		}
+		if(t1==0)
+		{
+		    System.out.println("-1");
+		}
+		else
+		{
+		    Collections.sort(l,Collections.reverseOrder());
+		    System.out.println(l.get(l.size()-1));
+		}
+		
+	}
+}
