@@ -1,0 +1,42 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    List <String> l=new ArrayList<String>();
+	    for(int i=0;i<n;i++)
+	    {
+	        String t=sc.next();
+	        l.add(t);
+	    }
+	    String g="";
+	    int min=31345;
+	    for(int j=0;j<n;j++)
+	    {
+	        if(l.get(j).length()<min)
+	        {
+	            min=l.get(j).length();
+	            g=l.get(j);
+	        }
+	    }
+	    List <String> q=new ArrayList<String>();
+	    for(int k=0;k<g.length();k++)
+	    {
+	        int c=0;
+	        for(int y=0;y<l.size();y++)
+	        {
+	            if(l.get(y).contains(g.substring(0,g.length()-k)))
+	            {
+	                c=c+1;
+	                if(c==g.length())
+	                {
+	                    q.add(g.substring(0,g.length()-k));
+	                }
+	            }
+	        }
+	    }
+	    System.out.print(q.get(0));
+	
+	}
+}
